@@ -1,25 +1,22 @@
-# docker-compose-nodejs-example
+# docker-compose-nodejs-example-with-typescript
 
-An example of Nodejs and Mongodb servers built using Docker Compose
+An example of Nodejs and Mongodb servers built using Docker Compose with support for TypeScript.
 
-Created with the help of this tutorial: https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
-
-Good info here as well: https://scotch.io/tutorials/create-a-mean-app-with-angular-2-and-docker-compose
-
-Good example here of loading a database fixture: https://stackoverflow.com/a/33397913/25868
-
-And my previous docker example: https://github.com/ashleydavis/docker-compose-basic-example
+[Based on previous example](https://github.com/ashleydavis/docker-compose-nodejs-example).
 
 ## To run the Node.js server on your dev pc:
 
-Clone or download this repo, open a command line, change to the repo directory, then install dependencies:
+PRE-REQ: You need MongoDB installed to run this directly on your dev PC.
 
-    > cd web
-    > npm install
+Clone or download this repo, open a command line, change to the repo directory, then install dependencies and build:
+
+    cd web
+    npm install
+    npm run build
 
 Then run the server:
 
-    > npm start
+    npm start
 
 Now navigate your browser to http://127.0.0.1:3000/ to view the app.
 
@@ -31,11 +28,11 @@ Ensure you have VirtualBox and Vagrant installed.
 
 Bring the VM up:
 
-    > vagrant up
+    vagrant up
 
 Or run the batch file to record the log to a file:
 
-    > up.bat
+    vm-up.bat
 
 This starts an Ubuntu VM, installs Docker and Docker Compose, then automatically runs `docker-compose up` to start the system.
 
@@ -52,6 +49,11 @@ Then change to the shared directory:
 Then run Docker Compose:
 
     sudo docker-compose up -d
+
+Or
+
+    chmod +x ./system-up.sh
+    ./system-up.sh
 
 The -d parameter starts it detatched from the command line.
 
@@ -98,7 +100,7 @@ Source: https://techoverflow.net/2013/10/22/docker-remove-all-images-and-contain
 - Create a Linux VM.
 - Open/map/allow end points.
 - Clone this repo to the VM.
-- Run the script linux-provision-vm.sh inside the VM.
+- Run the script vagrant-provision-vm.sh inside the VM.
 - You now have a running microservices system.
 
 Note: This won't get you a production ready system. I'm still trying to figure out how to do that with Kubernetes.

@@ -1,6 +1,6 @@
 FROM node:8
 
-# todo: Make this a multi-stage build.
+# todo: Make this a multi-stage build. But then npm caching won't work!
 
 WORKDIR /usr/src/app
 COPY package*.json ./
