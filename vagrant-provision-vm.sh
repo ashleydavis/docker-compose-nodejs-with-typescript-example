@@ -31,6 +31,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
 cd /vagrant
-mkdir ./persist
 
 sudo docker-compose up --build -d

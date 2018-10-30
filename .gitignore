@@ -4,3 +4,5 @@ todo.txt
 *.log
 persist/
 *.bak
+web/.nyc_output/
+web/build/

@@ -1,11 +1,9 @@
-'use strict';
-
-const express = require('express');
-const mongodb = require('mongodb');
-const fs = require('fs');
+import * as express from 'express';
+import * as mongodb from 'mongodb';
+import * as fs from 'fs';
 
 // Constants
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT && parseInt(process.env.PORT) || 3000;
 const HOST = process.env.HOST || "0.0.0.0";
 
 // App
@@ -13,7 +11,7 @@ const app = express();
 
 /*async*/ function startServer() {
     return new Promise((resolve, reject) => {
-        app.listen(PORT, HOST, err => {
+        app.listen(PORT, HOST, (err: any) => {
             if (err) {
                 reject(err);
             }
@@ -58,8 +56,3 @@ main()
         console.error("Failed to start!");
         console.error(err && err.stack || err);
     });
-
-//
-// Uncomment this code to test writing to a peristant directory within a Docker container.
-//
-//fs.writeFileSync("/persist/example.txt", "This is an example of data generated in the container that is persisted.");

@@ -4,7 +4,6 @@ services:
     build: ./web
     container_name: web
     volumes:
-     - ./persist:/persist:Z
      - /tmp/npm-cache:/root/.npm:z
     ports:
      - "3000:3000"

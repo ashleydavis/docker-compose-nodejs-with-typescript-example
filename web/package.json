@@ -1,28 +1,51 @@
 {
-  "name": "docker-compose-nodejs-example",
-  "version": "1.0.0",
-  "description": "An example of Nodejs and Mongodb servers built using Docker Compose",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "start:dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashleydavis/docker-compose-nodejs-example.git"
-  },
-  "author": "ashley@codecapers.com.au",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ashleydavis/docker-compose-nodejs-example/issues"
-  },
-  "homepage": "https://github.com/ashleydavis/docker-compose-nodejs-example#readme",
-  "dependencies": {
-    "express": "^4.16.3",
-    "mongodb": "^3.1.4"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.5"
-  }
+    "name": "docker-compose-nodejs-with-typescript-example",
+    "version": "1.0.0",
+    "description": "An example of Nodejs and Mongodb servers built using Docker Compose with support for TypeScript",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "scripts": {
+        "start": "node build/index.js",
+        "clean": "rm -rf build/*",
+        "build": "tsc",
+        "clean-build": "rm -rf build/* && tsc",
+        "build:watch": "tsc --watch",
+        "clean-build:watch": "rm -rf build/* && tsc --watch",
+        "test": "nyc mocha --opts ./src/test/mocha.opts",
+        "test:watch": "nyc mocha --watch --watch-extensions ts --opts ./src/test/mocha.opts"
+    },
+    "dependencies": {
+        "express": "^4.16.3",
+        "mongodb": "^3.1.4"
+    },
+    "devDependencies": {
+        "@types/chai": "4.1.6",
+        "@types/express": "^4.16.0",
+        "@types/mocha": "5.2.5",
+        "@types/mongodb": "^3.1.14",
+        "@types/node": "10.11.4",
+        "chai": "4.2.0",
+        "mocha": "5.2.0",
+        "nodemon": "^1.18.5",
+        "nyc": "13.0.1",
+        "source-map-support": "0.5.9",
+        "ts-node": "7.0.1",
+        "typescript": "3.1.1"
+    },
+    "nyc": {
+        "extension": [
+            ".ts"
+        ],
+        "exclude": [
+            "**/*.d.ts",
+            "src/test/**/*",
+            "build/**/*",
+            "docs/**/*",
+            "coverage/**/*"
+        ],
+        "reporter": [
+            "text-summary"
+        ],
+        "all": true
+    }
 }

@@ -1,1 +1,1 @@
-This directory contains a simple Node.js web server.
+This directory contains a simple Node.js web server built with TypeScript.
