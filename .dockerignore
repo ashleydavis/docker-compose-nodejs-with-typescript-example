@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+Vagrantfile
+README.md
+vagrant-provision-vm.sh
+.vagrant

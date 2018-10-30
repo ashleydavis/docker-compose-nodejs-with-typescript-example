@@ -1,0 +1,31 @@
+version: '3'
+services:
+  web:
+    build: ./web
+    container_name: web
+    volumes:
+     - ./persist:/persist:Z
+     - /tmp/npm-cache:/root/.npm:z
+    ports:
+     - "3000:3000"
+    environment:
+     - DBHOST=mongodb://db:27017
+    depends_on:
+     - db
+     - db-fixture
+    restart: always
+
+  db:
+    image: mongo
+    container_name: db
+    ports:
+     - "27017:27017"
+    restart: always
+
+  db-fixture:
+    build: ./db-fixture
+    container_name: db-fixture
+    links:
+      - db
+    depends_on:
+      - db

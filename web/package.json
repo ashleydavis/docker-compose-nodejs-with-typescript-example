@@ -1,0 +1,28 @@
+{
+  "name": "docker-compose-nodejs-example",
+  "version": "1.0.0",
+  "description": "An example of Nodejs and Mongodb servers built using Docker Compose",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashleydavis/docker-compose-nodejs-example.git"
+  },
+  "author": "ashley@codecapers.com.au",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashleydavis/docker-compose-nodejs-example/issues"
+  },
+  "homepage": "https://github.com/ashleydavis/docker-compose-nodejs-example#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  }
+}
