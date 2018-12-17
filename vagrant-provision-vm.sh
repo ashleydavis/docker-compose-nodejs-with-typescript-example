@@ -1,7 +1,6 @@
 # https://serverfault.com/questions/227190/how-do-i-ask-apt-get-to-skip-any-interactive-post-install-configuration-steps
 export DEBIAN_FRONTEND=noninteractive
 
-
 #
 # Install Docker.
 # https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-using-the-repository
@@ -30,6 +29,4 @@ sudo curl --silent -L https://github.com/docker/compose/releases/download/1.22.0
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-cd /vagrant
 
-sudo docker-compose up --build -d

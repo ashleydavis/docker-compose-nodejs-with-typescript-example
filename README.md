@@ -2,7 +2,11 @@
 
 An example of Nodejs and Mongodb servers built using Docker Compose with support for TypeScript.
 
-[Based on previous example](https://github.com/ashleydavis/docker-compose-nodejs-example).
+[Based on my previous example](https://github.com/ashleydavis/docker-compose-nodejs-example).
+
+Contains both dev and prod builds:
+- Dev build is optimised for fast build time and can watch and reload code modified on the host OS.
+- Prod build uses a Docker multi-stage build to compile the TypeScript code and then bundle the resulting JavaScript code.
 
 ## To run the Node.js server on your dev pc:
 
@@ -94,16 +98,6 @@ Source: https://techoverflow.net/2013/10/22/docker-remove-all-images-and-contain
 ## View logs from containers
 
     sudo docker-compose logs
-
-## Getting it running on Linux
-
-- Create a Linux VM.
-- Open/map/allow end points.
-- Clone this repo to the VM.
-- Run the script vagrant-provision-vm.sh inside the VM.
-- You now have a running microservices system.
-
-Note: This won't get you a production ready system. I'm still trying to figure out how to do that with Kubernetes.
 
 ## Resources
 

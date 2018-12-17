@@ -1,18 +1,5 @@
 version: '3'
 services:
-  web:
-    build: ./web
-    container_name: web
-    volumes:
-     - /tmp/npm-cache:/root/.npm:z
-    ports:
-     - "3000:3000"
-    environment:
-     - DBHOST=mongodb://db:27017
-    depends_on:
-     - db
-     - db-fixture
-    restart: always
 
   db:
     image: mongo
@@ -22,9 +9,26 @@ services:
     restart: always
 
   db-fixture:
+    image: db-fixture
     build: ./db-fixture
     container_name: db-fixture
-    links:
-      - db
     depends_on:
       - db
+    
+  web:
+    image: web
+    build: 
+      context: ./web
+      dockerfile: Dockerfile-dev
+    container_name: web
+    volumes:
+     - ./tmp/npm:/root/.npm:z
+     - ./web/src:/usr/src/app/src:z
+    ports:
+     - "80:80"
+    environment:
+     - PORT=80
+     - NODE_ENV=development
+     - DBHOST=mongodb://db:27017
+    restart: always
+
