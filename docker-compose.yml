@@ -30,5 +30,7 @@ services:
      - PORT=80
      - NODE_ENV=development
      - DBHOST=mongodb://db:27017
+    depends_on:
+      - db
     restart: always
 
