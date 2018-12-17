@@ -9,5 +9,4 @@ EXPOSE 80
 
 CMD npm config set cache-min 9999999 \
     && npm install \
-    && npm run build \
     && npm run start:dev
