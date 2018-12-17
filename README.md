@@ -4,7 +4,7 @@ An example of Nodejs and Mongodb servers built using Docker/Docker-Compose with 
 
 [Based on my previous example](https://github.com/ashleydavis/docker-compose-nodejs-example).
 
-[With some input from my Node.js microservices exampe](https://github.com/ashleydavis/nodejs-microservices-example).
+[With some input from my Node.js microservices example](https://github.com/ashleydavis/nodejs-microservices-example).
 
 Contains both dev and prod builds:
 - Dev build is optimised for fast build time and can watch and reload code modified on the host OS.
