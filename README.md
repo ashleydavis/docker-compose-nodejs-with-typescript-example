@@ -1,6 +1,6 @@
 # docker-compose-nodejs-example-with-typescript
 
-An example of Nodejs and Mongodb servers built using Docker Compose with support for TypeScript.
+An example of Nodejs and Mongodb servers built using Docker/Docker-Compose with support for TypeScript.
 
 [Based on my previous example](https://github.com/ashleydavis/docker-compose-nodejs-example).
 
