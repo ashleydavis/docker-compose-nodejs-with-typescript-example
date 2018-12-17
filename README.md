@@ -4,6 +4,8 @@ An example of Nodejs and Mongodb servers built using Docker Compose with support
 
 [Based on my previous example](https://github.com/ashleydavis/docker-compose-nodejs-example).
 
+[With some input from my Node.js microservices exampe](https://github.com/ashleydavis/nodejs-microservices-example).
+
 Contains both dev and prod builds:
 - Dev build is optimised for fast build time and can watch and reload code modified on the host OS.
 - Prod build uses a Docker multi-stage build to compile the TypeScript code and then bundle the resulting JavaScript code.
@@ -22,11 +24,15 @@ Then run the server:
 
     npm start
 
+You can also run it using ts-node and nodemon for live reload:
+
+    npm run start:dev
+
 Now navigate your browser to http://127.0.0.1:3000/ to view the app.
 
 To view the REST API navigate your browser to http://127.0.0.1:3000/data.
 
-## Running the Docker image in the Vagrant VM
+## Running with Docker-Compose in the Vagrant dev VM
 
 Ensure you have VirtualBox and Vagrant installed.
 
@@ -34,36 +40,25 @@ Bring the VM up:
 
     vagrant up
 
-Or run the batch file to record the log to a file:
+This starts an Ubuntu development VM, installs Docker and Docker-Compose.
 
-    vm-up.bat
-
-This starts an Ubuntu VM, installs Docker and Docker Compose, then automatically runs `docker-compose up` to start the system.
-
-At the end you should be able to browse to http://localhost:3000 on your **dev workstation** and see the web page it produces.
-
-After you reboot the Vagrant VM the system will no longer be running. To restart it, first shell in:
+After the dev VM has started, you can shell in and boot the system using Docker-Compose:
 
     vagrant ssh
 
-Then change to the shared directory:
+Change to the shared directory:
 
     cd /vagrant
 
-Then run Docker Compose:
+Run Docker Compose:
 
-    sudo docker-compose up -d
+    sudo docker-compose up --build
 
-Or
+You can also add a -d parameter to start Docker-Compose in dettached mode.
 
-    chmod +x ./system-up.sh
-    ./system-up.sh
+Now navigate your browser to http://127.0.0.1:4000/ to view the app.
 
-The -d parameter starts it detatched from the command line.
-
-To rebuild image (say after changing the code):
-
-    sudo docker-compose up --build -d
+You can connect to the MongoDB database on mongodb://127.0.0.1:4100.
 
 To list running containers:
 
