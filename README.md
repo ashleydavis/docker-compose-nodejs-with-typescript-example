@@ -6,6 +6,8 @@ An example of Nodejs and Mongodb servers built using Docker/Docker-Compose with 
 
 [With some input from my Node.js microservices example](https://github.com/ashleydavis/nodejs-microservices-example).
 
+[Click here to support my work](https://www.codecapers.com.au/about#support-my-work)
+
 Contains both dev and prod builds:
 - Dev build is optimised for fast build time and can watch and reload code modified on the host OS.
 - Prod build uses a Docker multi-stage build to compile the TypeScript code and then bundle the resulting JavaScript code.
